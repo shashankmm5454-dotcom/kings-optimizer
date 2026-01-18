@@ -1,0 +1,285 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-main: #030816;
+  --bg-surface: #050b1d;
+  --bg-card: #090f24;
+  --border-soft: rgba(255, 255, 255, 0.06);
+  --accent: #6f5bff;
+  --accent-pill: #3ec8ff;
+  --danger: #ff5b6b;
+  --success: #3be482;
+  --warning: #ffc94d;
+  --text: #f9fbff;
+  --text-soft: #9ba3cc;
+  --radius-card: 18px;
+  --radius-pill: 999px;
+  --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top, #181f3f 0, #050816 45%, #010208 100%);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(111, 91, 255, 0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(111, 91, 255, 0.6);
+}
+
+/* Surface cards */
+.surface {
+  border-radius: 26px;
+  background: linear-gradient(145deg, #050b1c 0, #030514 100%);
+  border: 1px solid var(--border-soft);
+  padding: 16px;
+  box-shadow: var(--shadow-soft);
+}
+
+.card {
+  border-radius: var(--radius-card);
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  padding: 12px;
+}
+
+/* Pill buttons */
+.pill-btn {
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(4, 7, 22, 0.9);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pill-btn:hover {
+  border-color: rgba(111, 91, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.pill-btn.primary {
+  background: radial-gradient(circle at 0 0, #ffeef7 0, #6b5bff 35%, #3020ae 100%);
+  border-color: rgba(151, 133, 255, 0.9);
+}
+
+.pill-btn.danger {
+  background: linear-gradient(135deg, #ff5b6b 0, #c9303d 100%);
+  border-color: rgba(255, 91, 107, 0.5);
+}
+
+.pill-btn.success {
+  background: linear-gradient(135deg, #3be482 0, #1fa35c 100%);
+  border-color: rgba(59, 228, 130, 0.5);
+}
+
+/* Run All button */
+.run-all-btn {
+  border: none;
+  border-radius: 24px;
+  padding: 10px 24px 10px 14px;
+  background: linear-gradient(135deg, #f5e7ff 0, #8d7dff 30%, #5042ce 70%, #3522a1 100%);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+  transition: all 0.2s ease;
+}
+
+.run-all-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 50px rgba(111, 91, 255, 0.4);
+}
+
+/* Pulse animation for status dot */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(64, 241, 138, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(64, 241, 138, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(64, 241, 138, 0);
+  }
+}
+
+.pulse-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #40f18a;
+  animation: pulse 1.6s infinite;
+}
+
+/* Summary cards */
+.summary-card {
+  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  padding: 12px;
+}
+
+.summary-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-soft);
+  margin-bottom: 4px;
+}
+
+.summary-value {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.summary-sub {
+  font-size: 10px;
+  color: var(--text-soft);
+  margin-top: 4px;
+}
+
+/* Table styles */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.data-table th {
+  background: rgba(111, 91, 255, 0.15);
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 10px;
+  color: var(--text-soft);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.data-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.data-table tr:hover {
+  background: rgba(111, 91, 255, 0.05);
+}
+
+/* Input styles */
+.input-field {
+  background: rgba(5, 8, 24, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(111, 91, 255, 0.2);
+}
+
+.input-field::placeholder {
+  color: var(--text-soft);
+}
+
+/* Select styles */
+.select-field {
+  background: rgba(5, 8, 24, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Status badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-success {
+  background: rgba(59, 228, 130, 0.15);
+  color: var(--success);
+  border: 1px solid rgba(59, 228, 130, 0.3);
+}
+
+.badge-warning {
+  background: rgba(255, 201, 77, 0.15);
+  color: var(--warning);
+  border: 1px solid rgba(255, 201, 77, 0.3);
+}
+
+.badge-danger {
+  background: rgba(255, 91, 107, 0.15);
+  color: var(--danger);
+  border: 1px solid rgba(255, 91, 107, 0.3);
+}
+
+.badge-info {
+  background: rgba(62, 200, 255, 0.15);
+  color: var(--accent-pill);
+  border: 1px solid rgba(62, 200, 255, 0.3);
+}
